@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,11 +12,68 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggr-L3-ZaY">
+                                <rect key="frame" x="131.5" y="243" width="111" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdO-x7-aog">
+                                        <rect key="frame" x="5" y="0.0" width="101" height="30"/>
+                                        <state key="normal" title="加速度計 - Pull"/>
+                                        <connections>
+                                            <action selector="doAccelerometerPull" destination="BYZ-38-t0r" eventType="touchUpInside" id="lwf-eQ-su0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypz-EB-zSf">
+                                        <rect key="frame" x="12.5" y="100" width="86" height="30"/>
+                                        <state key="normal" title="陀螺儀 - Pull"/>
+                                        <connections>
+                                            <action selector="doGyroPull" destination="BYZ-38-t0r" eventType="touchUpInside" id="eiA-Jl-mgt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYY-nK-ucf">
+                                        <rect key="frame" x="0.0" y="50" width="111" height="30"/>
+                                        <state key="normal" title="加速度計 - Push"/>
+                                        <connections>
+                                            <action selector="doAccelerometerPush" destination="BYZ-38-t0r" eventType="touchUpInside" id="nkV-7Y-tRx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWb-Bf-cnJ">
+                                        <rect key="frame" x="8.5" y="150" width="95" height="30"/>
+                                        <state key="normal" title="陀螺儀 - Push"/>
+                                        <connections>
+                                            <action selector="doGyroPush" destination="BYZ-38-t0r" eventType="touchUpInside" id="gdQ-FG-cRQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="jYY-nK-ucf" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="AZj-Ji-iyf"/>
+                                    <constraint firstItem="jYY-nK-ucf" firstAttribute="top" secondItem="jdO-x7-aog" secondAttribute="bottom" constant="20" id="Ac0-YV-Utf"/>
+                                    <constraint firstItem="jdO-x7-aog" firstAttribute="top" secondItem="ggr-L3-ZaY" secondAttribute="top" id="CAQ-3M-rq1"/>
+                                    <constraint firstItem="jYY-nK-ucf" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="FZS-S3-5Zs"/>
+                                    <constraint firstItem="ypz-EB-zSf" firstAttribute="top" secondItem="jYY-nK-ucf" secondAttribute="bottom" constant="20" id="JAt-CY-WCD"/>
+                                    <constraint firstItem="jYY-nK-ucf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ggr-L3-ZaY" secondAttribute="leading" id="M0R-OZ-pli"/>
+                                    <constraint firstItem="HWb-Bf-cnJ" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="MJe-K9-9Ki"/>
+                                    <constraint firstItem="jdO-x7-aog" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="O2s-Ph-pUN"/>
+                                    <constraint firstItem="HWb-Bf-cnJ" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="UCJ-Eq-v6s"/>
+                                    <constraint firstAttribute="trailing" secondItem="jYY-nK-ucf" secondAttribute="trailing" id="XuO-2E-m3Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="HWb-Bf-cnJ" secondAttribute="bottom" id="a3y-Ff-pjz"/>
+                                    <constraint firstItem="jdO-x7-aog" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="cAt-fZ-L67"/>
+                                    <constraint firstItem="ypz-EB-zSf" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="dlk-fw-NCb"/>
+                                    <constraint firstItem="ypz-EB-zSf" firstAttribute="centerX" secondItem="ggr-L3-ZaY" secondAttribute="centerX" id="e3T-QL-o6X"/>
+                                    <constraint firstItem="HWb-Bf-cnJ" firstAttribute="top" secondItem="ypz-EB-zSf" secondAttribute="bottom" constant="20" id="yCr-ES-PRT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ggr-L3-ZaY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GcK-e8-jDm"/>
+                            <constraint firstItem="ggr-L3-ZaY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mBN-Yc-M8P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
