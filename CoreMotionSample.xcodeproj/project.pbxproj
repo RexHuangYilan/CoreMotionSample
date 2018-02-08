@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD13F76E2026F58100B47932 /* HTWXYView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F76D2026F58100B47932 /* HTWXYView.m */; };
 		CDD8D9551F77700F001915A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D9541F77700F001915A2 /* AppDelegate.m */; };
 		CDD8D9581F77700F001915A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D9571F77700F001915A2 /* ViewController.m */; };
 		CDD8D95B1F77700F001915A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD8D9591F77700F001915A2 /* Main.storyboard */; };
 		CDD8D95D1F77700F001915A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD8D95C1F77700F001915A2 /* Assets.xcassets */; };
 		CDD8D9601F77700F001915A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD8D95E1F77700F001915A2 /* LaunchScreen.storyboard */; };
 		CDD8D9631F77700F001915A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D9621F77700F001915A2 /* main.m */; };
+		CDFDA080201D766D00880F92 /* XYZViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDA07F201D766D00880F92 /* XYZViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD13F76C2026F58100B47932 /* HTWXYView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTWXYView.h; sourceTree = "<group>"; };
+		CD13F76D2026F58100B47932 /* HTWXYView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTWXYView.m; sourceTree = "<group>"; };
 		CDD8D9501F77700F001915A2 /* CoreMotionSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreMotionSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD8D9531F77700F001915A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDD8D9541F77700F001915A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		CDD8D95F1F77700F001915A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDD8D9611F77700F001915A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD8D9621F77700F001915A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CDFDA07E201D766D00880F92 /* XYZViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZViewManager.h; sourceTree = "<group>"; };
+		CDFDA07F201D766D00880F92 /* XYZViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD13F76B2026F52900B47932 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD13F76C2026F58100B47932 /* HTWXYView.h */,
+				CD13F76D2026F58100B47932 /* HTWXYView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CDD8D9471F77700F001915A2 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +73,13 @@
 		CDD8D9521F77700F001915A2 /* CoreMotionSample */ = {
 			isa = PBXGroup;
 			children = (
+				CD13F76B2026F52900B47932 /* View */,
 				CDD8D9531F77700F001915A2 /* AppDelegate.h */,
 				CDD8D9541F77700F001915A2 /* AppDelegate.m */,
 				CDD8D9561F77700F001915A2 /* ViewController.h */,
 				CDD8D9571F77700F001915A2 /* ViewController.m */,
+				CDFDA07E201D766D00880F92 /* XYZViewManager.h */,
+				CDFDA07F201D766D00880F92 /* XYZViewManager.m */,
 				CDD8D9591F77700F001915A2 /* Main.storyboard */,
 				CDD8D95C1F77700F001915A2 /* Assets.xcassets */,
 				CDD8D95E1F77700F001915A2 /* LaunchScreen.storyboard */,
@@ -142,7 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFDA080201D766D00880F92 /* XYZViewManager.m in Sources */,
 				CDD8D9581F77700F001915A2 /* ViewController.m in Sources */,
+				CD13F76E2026F58100B47932 /* HTWXYView.m in Sources */,
 				CDD8D9631F77700F001915A2 /* main.m in Sources */,
 				CDD8D9551F77700F001915A2 /* AppDelegate.m in Sources */,
 			);
@@ -279,9 +299,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9T2895B39;
+				DEVELOPMENT_TEAM = 429PR6S72V;
 				INFOPLIST_FILE = CoreMotionSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.etmall.apptest.CoreMotionSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,9 +314,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9T2895B39;
+				DEVELOPMENT_TEAM = 429PR6S72V;
 				INFOPLIST_FILE = CoreMotionSample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.etmall.apptest.CoreMotionSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
