@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoreMotionSample/ViewController.m"
-            timestampString = "539701392.491601"
+            filePath = "CoreMotionSample/View/HTWCoordinatesView.m"
+            timestampString = "540083110.254532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-doReferNorth:"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-drawCoordinatesWithRect:horizontal:pointValue:maxLength:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

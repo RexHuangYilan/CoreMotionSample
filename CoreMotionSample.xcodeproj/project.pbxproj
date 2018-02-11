@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CD13F76E2026F58100B47932 /* HTWXYView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F76D2026F58100B47932 /* HTWXYView.m */; };
+		CD13F772202DCD2B00B47932 /* XYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F771202DCD2B00B47932 /* XYViewController.m */; };
+		CD13F775202DCF1500B47932 /* CenterXYView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F774202DCF1500B47932 /* CenterXYView.m */; };
+		CD13F778202E87DA00B47932 /* HTWCoordinatesView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F777202E87DA00B47932 /* HTWCoordinatesView.m */; };
+		CD13F77B202EE8BA00B47932 /* FunctionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F77A202EE8BA00B47932 /* FunctionListViewController.m */; };
+		CD13F77E202EE95100B47932 /* FunctionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD13F77D202EE95100B47932 /* FunctionList.plist */; };
+		CD13F781202F1E2700B47932 /* CompassPointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F780202F1E2700B47932 /* CompassPointerView.m */; };
+		CD13F785203047ED00B47932 /* DeviceMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD13F784203047ED00B47932 /* DeviceMotionManager.m */; };
 		CDD8D9551F77700F001915A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D9541F77700F001915A2 /* AppDelegate.m */; };
 		CDD8D9581F77700F001915A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD8D9571F77700F001915A2 /* ViewController.m */; };
 		CDD8D95B1F77700F001915A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD8D9591F77700F001915A2 /* Main.storyboard */; };
@@ -20,6 +27,19 @@
 /* Begin PBXFileReference section */
 		CD13F76C2026F58100B47932 /* HTWXYView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTWXYView.h; sourceTree = "<group>"; };
 		CD13F76D2026F58100B47932 /* HTWXYView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTWXYView.m; sourceTree = "<group>"; };
+		CD13F770202DCD2B00B47932 /* XYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYViewController.h; sourceTree = "<group>"; };
+		CD13F771202DCD2B00B47932 /* XYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYViewController.m; sourceTree = "<group>"; };
+		CD13F773202DCF1500B47932 /* CenterXYView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CenterXYView.h; sourceTree = "<group>"; };
+		CD13F774202DCF1500B47932 /* CenterXYView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CenterXYView.m; sourceTree = "<group>"; };
+		CD13F776202E87DA00B47932 /* HTWCoordinatesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTWCoordinatesView.h; sourceTree = "<group>"; };
+		CD13F777202E87DA00B47932 /* HTWCoordinatesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTWCoordinatesView.m; sourceTree = "<group>"; };
+		CD13F779202EE8BA00B47932 /* FunctionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionListViewController.h; sourceTree = "<group>"; };
+		CD13F77A202EE8BA00B47932 /* FunctionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionListViewController.m; sourceTree = "<group>"; };
+		CD13F77D202EE95100B47932 /* FunctionList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FunctionList.plist; sourceTree = "<group>"; };
+		CD13F77F202F1E2700B47932 /* CompassPointerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassPointerView.h; sourceTree = "<group>"; };
+		CD13F780202F1E2700B47932 /* CompassPointerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassPointerView.m; sourceTree = "<group>"; };
+		CD13F783203047ED00B47932 /* DeviceMotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceMotionManager.h; sourceTree = "<group>"; };
+		CD13F784203047ED00B47932 /* DeviceMotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceMotionManager.m; sourceTree = "<group>"; };
 		CDD8D9501F77700F001915A2 /* CoreMotionSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreMotionSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD8D9531F77700F001915A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDD8D9541F77700F001915A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,8 +70,42 @@
 			children = (
 				CD13F76C2026F58100B47932 /* HTWXYView.h */,
 				CD13F76D2026F58100B47932 /* HTWXYView.m */,
+				CD13F773202DCF1500B47932 /* CenterXYView.h */,
+				CD13F774202DCF1500B47932 /* CenterXYView.m */,
+				CD13F776202E87DA00B47932 /* HTWCoordinatesView.h */,
+				CD13F777202E87DA00B47932 /* HTWCoordinatesView.m */,
+				CD13F77F202F1E2700B47932 /* CompassPointerView.h */,
+				CD13F780202F1E2700B47932 /* CompassPointerView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CD13F76F202DCD1700B47932 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CD13F770202DCD2B00B47932 /* XYViewController.h */,
+				CD13F771202DCD2B00B47932 /* XYViewController.m */,
+				CD13F779202EE8BA00B47932 /* FunctionListViewController.h */,
+				CD13F77A202EE8BA00B47932 /* FunctionListViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CD13F77C202EE93100B47932 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CD13F77D202EE95100B47932 /* FunctionList.plist */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CD13F7822030479C00B47932 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD13F783203047ED00B47932 /* DeviceMotionManager.h */,
+				CD13F784203047ED00B47932 /* DeviceMotionManager.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CDD8D9471F77700F001915A2 = {
@@ -73,11 +127,14 @@
 		CDD8D9521F77700F001915A2 /* CoreMotionSample */ = {
 			isa = PBXGroup;
 			children = (
+				CD13F77C202EE93100B47932 /* Data */,
 				CD13F76B2026F52900B47932 /* View */,
 				CDD8D9531F77700F001915A2 /* AppDelegate.h */,
 				CDD8D9541F77700F001915A2 /* AppDelegate.m */,
 				CDD8D9561F77700F001915A2 /* ViewController.h */,
 				CDD8D9571F77700F001915A2 /* ViewController.m */,
+				CD13F7822030479C00B47932 /* Model */,
+				CD13F76F202DCD1700B47932 /* ViewController */,
 				CDFDA07E201D766D00880F92 /* XYZViewManager.h */,
 				CDFDA07F201D766D00880F92 /* XYZViewManager.m */,
 				CDD8D9591F77700F001915A2 /* Main.storyboard */,
@@ -149,6 +206,7 @@
 			files = (
 				CDD8D9601F77700F001915A2 /* LaunchScreen.storyboard in Resources */,
 				CDD8D95D1F77700F001915A2 /* Assets.xcassets in Resources */,
+				CD13F77E202EE95100B47932 /* FunctionList.plist in Resources */,
 				CDD8D95B1F77700F001915A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,8 +218,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD13F778202E87DA00B47932 /* HTWCoordinatesView.m in Sources */,
 				CDFDA080201D766D00880F92 /* XYZViewManager.m in Sources */,
+				CD13F775202DCF1500B47932 /* CenterXYView.m in Sources */,
+				CD13F781202F1E2700B47932 /* CompassPointerView.m in Sources */,
+				CD13F772202DCD2B00B47932 /* XYViewController.m in Sources */,
 				CDD8D9581F77700F001915A2 /* ViewController.m in Sources */,
+				CD13F785203047ED00B47932 /* DeviceMotionManager.m in Sources */,
+				CD13F77B202EE8BA00B47932 /* FunctionListViewController.m in Sources */,
 				CD13F76E2026F58100B47932 /* HTWXYView.m in Sources */,
 				CDD8D9631F77700F001915A2 /* main.m in Sources */,
 				CDD8D9551F77700F001915A2 /* AppDelegate.m in Sources */,

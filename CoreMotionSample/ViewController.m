@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "XYZViewManager.h"
-#import "HTWXYView.h"
+
+#import "XYViewController.h"
+
 #import <CoreMotion/CoreMotion.h>
 
 @interface ViewController ()
@@ -22,7 +24,9 @@
 @property (strong, nonatomic) IBOutlet XYZViewManager *gyroPullViewManager;
 @property (strong, nonatomic) IBOutlet XYZViewManager *referNorthViewManager;
 @property (weak, nonatomic) IBOutlet UIView *pointView;
-@property (weak, nonatomic) IBOutlet HTWXYView *xyView;
+
+//@property (weak,nonatomic) id<XYViewControllerDelegate> delegate;
+
 @end
 
 
@@ -36,6 +40,8 @@ CGPoint *pass_back(CGPoint points[4])
 
 @implementation ViewController
 
+#pragma mark - live cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -43,9 +49,11 @@ CGPoint *pass_back(CGPoint points[4])
     self.motionManager = manager;
     self.motionManager.accelerometerUpdateInterval = 0.5;
     self.motionManager.gyroUpdateInterval = 0.5;
-    self.motionManager.deviceMotionUpdateInterval = 0.5;
+    self.motionManager.deviceMotionUpdateInterval = 1/10.0;
     
 }
+
+
 
 - (IBAction)doAccelerometerPull
 {
@@ -117,38 +125,64 @@ CGPoint *pass_back(CGPoint points[4])
 
 - (IBAction)doReferNorth:(id)sender
 {
-    [self.xyView setStartPoint:self.view.center];
-    
     if (self.motionManager.isDeviceMotionAvailable){
         NSOperationQueue *queue = [NSOperationQueue mainQueue];
         //開始更新
         __weak typeof(self) weakself = self;
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:queue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical toQueue:queue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
             
             CMAcceleration acc = motion.userAcceleration;
             CMRotationMatrix rot = motion.attitude.rotationMatrix;
             
+            //x軸代表手機的左邊還右邊往下，值為正(右)~負(左)
+            weakself.referNorthViewManager.x = acc.x;
+            //y軸代表手機的上邊還下邊往下，值為正(上)~負(下)
+            weakself.referNorthViewManager.y = acc.y;
+            //z軸代表手機的螢幕正面還背面往下，值為正(正面)~負(背面)
+            weakself.referNorthViewManager.z = acc.z;
             
 //            //x軸代表手機的左邊還右邊往下，值為正(右)~負(左)
-//            weakself.referNorthViewManager.x = acc.x;
+//            weakself.referNorthViewManager.x = (acc.x*rot.m11 + acc.y*rot.m21 + acc.z*rot.m31)*9.81;
 //            //y軸代表手機的上邊還下邊往下，值為正(上)~負(下)
-//            weakself.referNorthViewManager.y = acc.y;
+//            weakself.referNorthViewManager.y = (acc.x*rot.m12 + acc.y*rot.m22 + acc.z*rot.m32)*9.81;
 //            //z軸代表手機的螢幕正面還背面往下，值為正(正面)~負(背面)
-//            weakself.referNorthViewManager.z = acc.z;
+//            weakself.referNorthViewManager.z = (acc.x*rot.m13 + acc.y*rot.m23 + acc.z*rot.m33)*9.81;
             
-            //x軸代表手機的左邊還右邊往下，值為正(右)~負(左)
-            weakself.referNorthViewManager.x = (acc.x*rot.m11 + acc.y*rot.m21 + acc.z*rot.m31)*9.81;
-            //y軸代表手機的上邊還下邊往下，值為正(上)~負(下)
-            weakself.referNorthViewManager.y = (acc.x*rot.m12 + acc.y*rot.m22 + acc.z*rot.m32)*9.81;
-            //z軸代表手機的螢幕正面還背面往下，值為正(正面)~負(背面)
-            weakself.referNorthViewManager.z = (acc.x*rot.m13 + acc.y*rot.m23 + acc.z*rot.m33)*9.81;
+            CGFloat posX = acc.x;
+            CGFloat posY = acc.y;
+            // 防抖動
+            if (fabs(posX) < 0.01) {
+                posX = 0 ;
+            }
+            if (fabs(posY) < 0.01) {
+                posY = 0 ;
+            }
+            if (posX == 0 && posY == 0) {
+                return ;
+            }
             
-            CGFloat posX = acc.x * 30;
-            CGFloat posY = acc.y * 30;
-            weakself.pointView.center = CGPointMake(posX, posY);
-            [weakself.xyView addPoint:CGPointMake(posX, posY)];
+            CGFloat timeG = 9.81 * self.motionManager.deviceMotionUpdateInterval;
+            
+            posX = posX * timeG;
+            posY = posY * timeG;
+            [self addPoint:CGPointMake(posX, posY)];
         }];
     }
+}
+
+-(void)addPoint:(CGPoint)point
+{
+//    if (self.delegate) {
+//        [self.delegate addPoint:point];
+//    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+//    if ([segue.destinationViewController isKindOfClass:XYViewController.class]) {
+//        XYViewController *vc = (XYViewController *)segue.destinationViewController;
+//        self.delegate = vc;
+//    }
 }
 
 @end

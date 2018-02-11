@@ -23,27 +23,27 @@
 
 -(void)setX:(CGFloat)x
 {
-//    if (fabs(_x) > fabs(x)) {
-//        return;
-//    }
+    if (fabs(_x) > fabs(x)) {
+        return;
+    }
     _x = x;
     self.labelX.text = [NSString stringWithFormat:@"%f",x];
 }
 
 -(void)setY:(CGFloat)y
 {
-//    if (fabs(_y) > fabs(y)) {
-//        return;
-//    }
+    if (fabs(_y) > fabs(y)) {
+        return;
+    }
     _y = y;
     self.labelY.text = [NSString stringWithFormat:@"%f",y];
 }
 
 -(void)setZ:(CGFloat)z
 {
-//    if (fabs(_z) > fabs(z)) {
-//        return;
-//    }
+    if (fabs(_z) > fabs(z)) {
+        return;
+    }
     _z = z;
     self.labelZ.text = [NSString stringWithFormat:@"%f",z];
 }

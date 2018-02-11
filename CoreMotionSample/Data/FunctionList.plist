@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Reference Frame X Arbitrary Z Vertical</string>
+		<key>selector</key>
+		<string>doArbitrary:</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Reference Frame X Arbitrary Corrected Z Vertical</string>
+		<key>selector</key>
+		<string>doArbitraryCorrected:</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Reference Frame X Magnetic North Z Vertical</string>
+		<key>selector</key>
+		<string>doMagneticNorth:</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Reference Frame X True North Z Vertical</string>
+		<key>selector</key>
+		<string>doTrueNorthZVertical:</string>
+	</dict>
+</array>
+</plist>
