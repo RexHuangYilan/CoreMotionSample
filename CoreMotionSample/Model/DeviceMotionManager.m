@@ -17,6 +17,21 @@
  */
 @property (nonatomic) CGFloat rotationDeviation;
 
+/*!
+ yaw角度
+ */
+@property (nonatomic) CGFloat rotation;
+
+/*!
+ 上一次的轉角
+ */
+@property (nonatomic) CGFloat lastDeviation;
+
+/*!
+ 轉動中
+ */
+@property (nonatomic) BOOL turning;
+
 @end
 
 @implementation DeviceMotionManager
@@ -38,7 +53,9 @@
 {
     _isRotationDeviation = isRotationDeviation;
     if (isRotationDeviation) {
+        NSLog(@"============= [log] 修正");
         self.rotationDeviation = self.motionManager.deviceMotion.attitude.yaw;
+        [self changeRotation:0];
     }
 }
 
@@ -66,14 +83,41 @@
 
 - (void)checkRotationWithMotion:(CMDeviceMotion *)motion
 {
+    // 左為正，右為負,3.14~-3.14
     CGFloat rotation = motion.attitude.yaw;
-
-    [self changeRotation:rotation - self.rotationDeviation];
+//    NSLog(@"[log] rotation:%f",rotation / M_PI * 180);
+    CGFloat deviation = rotation - self.rotation;
+    if (fabs(deviation) > M_PI) {
+        deviation = 2 * M_PI - fabs(self.rotation) - fabs(rotation);
+        if(rotation > 0){
+            deviation *= -1;
+        }
+    }
+    
+//    BOOL sort = self.lastDeviation > deviation;
+//    CGFloat ddeviation = self.lastDeviation - deviation;
+    self.lastDeviation = deviation;
+    self.turning = NO;
+    // 不動時的偏差修正
+    if (fabs(deviation) > 0.01f) {
+//        NSLog(@"[log] M_PI/18:%f",M_PI / 180 * 15);
+        NSLog(@"[log] deviation:%f",deviation);
+        // 一般直線行走轉角最多可能3.5度，所以轉角大於3.5度才定義為轉動中
+        if (fabs(deviation) > M_PI / 180 * 3.5) {
+//            NSLog(@"[log] deviation:%f",deviation);
+            NSLog(@"============= [log] M_PI/18:%f",M_PI / 180 * 3.5);
+            self.turning = YES;
+        }
+        [self changeRotation: -(rotation - self.rotationDeviation)];
+    }else{
+        self.rotationDeviation -= deviation;
+    }
+    self.rotation = rotation;
 }
 
 - (void)checkUserAccelerationWithMotion:(CMDeviceMotion *)motion
 {
-    if (!self.isRotationDeviation) {
+    if (!self.isRotationDeviation || self.turning) {
         return;
     }
     
@@ -93,8 +137,13 @@
     
     CGFloat timeG = 9.81 * self.motionManager.deviceMotionUpdateInterval;
     
-    posX = posX * timeG;
-    posY = posY * timeG;
+//    posX = posX * timeG;
+//    posY = posY * timeG;
+    CGFloat o = -(self.rotation - self.rotationDeviation);
+    CGFloat s = posY * timeG;
+    posX = s * sinf(o);
+    posY = s * cosf(o);
+    
     [self addPoint:CGPointMake(posX, posY)];
 }
 

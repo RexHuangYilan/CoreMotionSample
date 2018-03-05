@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
-@interface CompassPointerView : UIView
+@interface CompassPointerView : UIView <NSCopying>
 
 /*!
  北邊顏色

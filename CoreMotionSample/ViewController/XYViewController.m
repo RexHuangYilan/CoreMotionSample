@@ -22,6 +22,8 @@ HTWXYViewDelegate
 @property (weak, nonatomic) IBOutlet CenterXYView *xyView;
 @property (weak, nonatomic) IBOutlet UILabel *labXY;
 @property (weak, nonatomic) IBOutlet UIView *viewPoint;
+@property (weak, nonatomic) IBOutlet UIView *superViewPoint;
+
 
 @property (weak, nonatomic) IBOutlet UIView *viewMask;
 @property (weak, nonatomic) IBOutlet UIView *viewMaskPoint;
@@ -54,12 +56,20 @@ HTWXYViewDelegate
 
 #pragma mark - 
 
-- (IBAction)doCorrectRotationDeviation:(id)sender
+- (IBAction)doCorrectRotationDeviation:(UIGestureRecognizer *)sender
 {
+    UIView *view = [self.viewPoint copy];
+    view.center = self.superViewPoint.center;
+    [self.xyView insertSubview:view belowSubview:self.superViewPoint];
+    
     self.deviceMotionManager.isRotationDeviation = YES;
-    [UIView animateWithDuration:.5 animations:^{
-        self.viewMask.alpha = 0;
-    }];
+    if (sender.view == self.viewMaskPoint) {
+        [UIView animateWithDuration:.5 animations:^{
+            self.viewMask.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.viewMask.hidden = YES;
+        }];
+    }
 }
 
 #pragma mark - DeviceMotionManagerDelegate
@@ -83,7 +93,7 @@ HTWXYViewDelegate
 -(void)xyView:(HTWXYView *)xyView changeCurrentPoint:(CGPoint)currentPoint deviceCurrentPoint:(CGPoint)deviceCurrentPoint
 {
     self.labXY.text = [NSString stringWithFormat:@"x:%.2f y:%.2f",currentPoint.x,currentPoint.y];
-    self.viewPoint.center = deviceCurrentPoint;
+    self.superViewPoint.center = deviceCurrentPoint;
 }
 
 @end

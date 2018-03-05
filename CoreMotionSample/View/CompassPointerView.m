@@ -30,6 +30,13 @@
     return self;
 }
 
+-(id)copyWithZone:(NSZone *)zone
+{
+    CompassPointerView *view = [[CompassPointerView alloc] initWithFrame:self.bounds];
+    view.transform = self.transform;
+    return view;
+}
+
 -(void)steupProperty
 {
     self.backgroundColor = [UIColor clearColor];
